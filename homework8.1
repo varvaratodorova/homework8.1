@@ -1,0 +1,159 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random rand = new Random();
+        int[] array = new int[10];
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = rand.Next(-10, 11); // Від -10 до 10 включно
+        }
+
+        Console.WriteLine("Елементи масиву з парними індексами:");
+        for (int i = 0; i < array.Length; i += 2)
+        {
+            Console.WriteLine($"Індекс {i}: {array[i]}");
+        }
+    }
+}
+
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random rand = new Random();
+        int[] array = new int[10];
+        int sum = 0;
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = rand.Next(-10, 11); 
+            sum += array[i];
+        }
+
+        Console.WriteLine("Сума елементів масиву: " + sum);
+        if (sum >= 0)
+        {
+            Console.WriteLine("Сума є невід'ємним числом.");
+        }
+        else
+        {
+            Console.WriteLine("Сума є від'ємним числом.");
+        }
+    }
+}
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] multiplicationTable = new int[9, 9];
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                multiplicationTable[i, j] = (i + 1) * (j + 1);
+            }
+        }
+
+        Console.WriteLine("Таблиця множення 9x9:");
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                Console.Write(multiplicationTable[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random rand = new Random();
+        int[,] array = new int[5, 5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                array[i, j] = rand.Next(-20, 21); 
+            }
+        }
+
+        int min = array[0, 0];
+        int max = array[0, 0];
+        int minRow = 0, minCol = 0;
+        int maxRow = 0, maxCol = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                if (array[i, j] < min)
+                {
+                    min = array[i, j];
+                    minRow = i;
+                    minCol = j;
+                }
+                if (array[i, j] > max)
+                {
+                    max = array[i, j];
+                    maxRow = i;
+                    maxCol = j;
+                }
+            }
+        }
+
+        Console.WriteLine("Масив 5x5:");
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Console.Write(array[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+
+        Console.WriteLine($"Максимальний елемент: {max} (Індекс: {maxRow},{maxCol})");
+        Console.WriteLine($"Мінімальний елемент: {min} (Індекс: {minRow},{minCol})");
+    }
+}
+
+
+
+using System;
+
+class Program
+{
+    enum DayOfWeekEnum { Monday = 1, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday }
+
+    static void Main()
+    {
+        Console.Write("Введіть кількість днів: ");
+        int days = int.Parse(Console.ReadLine());
+
+        int dayIndex = (days % 7) == 0 ? 7 : days % 7;
+
+        Console.WriteLine($"День тижня через {days} днів: {Enum.GetName(typeof(DayOfWeekEnum), dayIndex)}");
+    }
+}
